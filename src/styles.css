@@ -1,0 +1,213 @@
+/* Use Comic Sans MS font */
+@import url("https://fonts.googleapis.com/css2?family=Comic+Sans+MS&display=swap");
+
+.App {
+  font-family: "Comic Sans MS", cursive;
+  text-align: center;
+  padding: 20px;
+  background-color: #f9f9f9;
+  color: #151515;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+h1 {
+  color: #4caf50;
+  font-size: 36px;
+}
+
+h3 {
+  font-size: 24px;
+  color: #555;
+}
+
+input {
+  padding: 10px;
+  margin: 10px;
+  font-size: 16px;
+  width: 250px;
+  border-radius: 25px;
+  border: 1px solid #ddd;
+  transition: border 0.3s ease;
+}
+
+input:focus {
+  border-color: #4caf50;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 25px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+/* Set List Styles */
+.set-list {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.set-item {
+  position: relative;
+  padding: 15px;
+  margin: 10px;
+  background-color: #fff;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.set-item:hover {
+  background-color: #f1f1f1;
+}
+
+.set-item.active {
+  background-color: #e8f5e9;
+}
+
+.set-name {
+  flex-grow: 1;
+  text-align: left;
+}
+
+.delete-set-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.delete-set-btn i {
+  font-size: 16px;
+  color: #656565;
+}
+
+.set-item:hover .delete-set-btn i {
+  color: #f44336;
+}
+
+/* Flashcard Styles */
+.flashcard-list {
+  margin-top: 20px;
+}
+
+.flashcard-item {
+  padding: 15px;
+  margin: 10px 0;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-creation {
+  margin-top: 20px;
+}
+
+.flashcard button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  border-radius: 25px;
+}
+
+.flashcard button:hover {
+  background-color: #0b7dda;
+}
+
+/* Study Mode Styles */
+.study-mode {
+  margin-top: 20px;
+}
+
+.study-mode .flashcard {
+  padding: 20px;
+  margin-top: 15px;
+  border-radius: 10px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  border: 3px solid black; /* Black outline */
+}
+
+.card-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  perspective: 1000px; /* 3D perspective for the flip effect */
+  transition: transform 0.6s;
+}
+
+.flashcard.flip .card-content {
+  transform: rotateY(180deg); /* Flipping effect */
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Shadow effect for card edges */
+}
+
+.card-back {
+  background-color: #f4f4f4;
+  transform: rotateY(180deg); /* Rotates the back face */
+}
+
+.card-text {
+  font-size: 20px;
+  margin: 20px;
+}
+
+.study-mode .flashcard:hover {
+  border: 3px solid #555; /* Darker black when hovered */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+
+/* General Styles for Print */
+@media print {
+  .App {
+    padding: 0;
+  }
+  .flashcard {
+    width: 4.25in;
+    height: 2.2in;
+    margin: 0.1in;
+    display: inline-block;
+    box-shadow: none;
+    text-align: center;
+  }
+
+  .flashcard-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+}
